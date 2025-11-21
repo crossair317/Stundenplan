@@ -1,15 +1,106 @@
 <!DOCTYPE html>
-
-<html> 
-
-<title>Stundenplan</title>
-
+<html lang="de">
 <head>
-
-    <h1>Stundenplan</h1>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stundenplan</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
+<body>
+    <header class="page-header">
+        <h1>Stundenplan</h1>
+    </header>
 
+    <main class="timetable-wrapper">
+        <table class="timetable" aria-label="Stundenplan">
+            <thead>
+                <tr>
+                    <th scope="col">Stunde</th>
+                    <th scope="col">Montag</th>
+                    <th scope="col">Dienstag</th>
+                    <th scope="col">Mittwoch</th>
+                    <th scope="col">Donnerstag</th>
+                    <th scope="col">Freitag</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td><button class="lesson-btn" data-fach="Mathematik" data-raum="101" data-lehrer="Herr Müller">Mathematik</button></td>
+                    <td><button class="lesson-btn" data-fach="Deutsch" data-raum="204" data-lehrer="Frau Schmidt">Deutsch</button></td>
+                    <td><button class="lesson-btn" data-fach="Biologie" data-raum="305" data-lehrer="Frau Keller">Biologie</button></td>
+                    <td><button class="lesson-btn" data-fach="Physik" data-raum="107" data-lehrer="Herr Klein">Physik</button></td>
+                    <td><button class="lesson-btn" data-fach="Geschichte" data-raum="208" data-lehrer="Herr Schwarz">Geschichte</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td><button class="lesson-btn" data-fach="Englisch" data-raum="102" data-lehrer="Frau Weber">Englisch</button></td>
+                    <td><button class="lesson-btn" data-fach="Chemie" data-raum="304" data-lehrer="Herr Krüger">Chemie</button></td>
+                    <td><button class="lesson-btn" data-fach="Sport" data-raum="Sporthalle" data-lehrer="Herr Braun">Sport</button></td>
+                    <td><button class="lesson-btn" data-fach="Musik" data-raum="115" data-lehrer="Frau Lange">Musik</button></td>
+                    <td><button class="lesson-btn" data-fach="Geografie" data-raum="210" data-lehrer="Frau Peters">Geografie</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td><button class="lesson-btn" data-fach="Kunst" data-raum="110" data-lehrer="Frau Sommer">Kunst</button></td>
+                    <td><button class="lesson-btn" data-fach="Mathematik" data-raum="101" data-lehrer="Herr Müller">Mathematik</button></td>
+                    <td><button class="lesson-btn" data-fach="Deutsch" data-raum="204" data-lehrer="Frau Schmidt">Deutsch</button></td>
+                    <td><button class="lesson-btn" data-fach="Informatik" data-raum="301" data-lehrer="Herr Vogel">Informatik</button></td>
+                    <td><button class="lesson-btn" data-fach="Ethik" data-raum="212" data-lehrer="Frau Richter">Ethik</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td><button class="lesson-btn" data-fach="Physik" data-raum="107" data-lehrer="Herr Klein">Physik</button></td>
+                    <td><button class="lesson-btn" data-fach="Englisch" data-raum="102" data-lehrer="Frau Weber">Englisch</button></td>
+                    <td><button class="lesson-btn" data-fach="Geschichte" data-raum="208" data-lehrer="Herr Schwarz">Geschichte</button></td>
+                    <td><button class="lesson-btn" data-fach="Biologie" data-raum="305" data-lehrer="Frau Keller">Biologie</button></td>
+                    <td><button class="lesson-btn" data-fach="Deutsch" data-raum="204" data-lehrer="Frau Schmidt">Deutsch</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td><button class="lesson-btn" data-fach="Geografie" data-raum="210" data-lehrer="Frau Peters">Geografie</button></td>
+                    <td><button class="lesson-btn" data-fach="Kunst" data-raum="110" data-lehrer="Frau Sommer">Kunst</button></td>
+                    <td><button class="lesson-btn" data-fach="Mathematik" data-raum="101" data-lehrer="Herr Müller">Mathematik</button></td>
+                    <td><button class="lesson-btn" data-fach="Deutsch" data-raum="204" data-lehrer="Frau Schmidt">Deutsch</button></td>
+                    <td><button class="lesson-btn" data-fach="Physik" data-raum="107" data-lehrer="Herr Klein">Physik</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td><button class="lesson-btn" data-fach="Informatik" data-raum="301" data-lehrer="Herr Vogel">Informatik</button></td>
+                    <td><button class="lesson-btn" data-fach="Musik" data-raum="115" data-lehrer="Frau Lange">Musik</button></td>
+                    <td><button class="lesson-btn" data-fach="Sport" data-raum="Sporthalle" data-lehrer="Herr Braun">Sport</button></td>
+                    <td><button class="lesson-btn" data-fach="Chemie" data-raum="304" data-lehrer="Herr Krüger">Chemie</button></td>
+                    <td><button class="lesson-btn" data-fach="Englisch" data-raum="102" data-lehrer="Frau Weber">Englisch</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <section class="detail-panel" aria-live="polite" aria-hidden="true">
+        <div class="detail-panel__content">
+            <header class="detail-panel__header">
+                <h2>Details</h2>
+                <button class="close-btn" type="button" aria-label="Details schließen">×</button>
+            </header>
+            <dl class="detail-panel__list">
+                <div>
+                    <dt>Fach</dt>
+                    <dd id="detail-fach">–</dd>
+                </div>
+                <div>
+                    <dt>Raum</dt>
+                    <dd id="detail-raum">–</dd>
+                </div>
+                <div>
+                    <dt>Lehrer</dt>
+                    <dd id="detail-lehrer">–</dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+
+    <div class="overlay" hidden></div>
+
+    <script src="script.js"></script>
+</body>
 </html>
