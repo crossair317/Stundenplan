@@ -1,0 +1,9 @@
+/* style.css */
+h1 {
+    color: #4CAF50;           /* Schriftfarbe */
+    font-size: 36px;           /* Schriftgröße */
+    font-family: Arial, sans-serif; /* Schriftart */
+    margin-top: 20px;          /* Abstand nach oben */
+    margin-bottom: 20px;       /* Abstand nach unten */
+    text-transform: uppercase; /* optional: alles großschreiben */
+}
