@@ -1,75 +1,66 @@
 <!DOCTYPE html>
 <html lang="de">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stundenplan</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-
-<body>
-  <header class="site-header">
-    <div class="brand">
-      <div class="brand-mark" aria-hidden="true">SP</div>
-      <div>
-        <p class="eyebrow">Campus Navigator</p>
-        <h1>Stundenplan</h1>
-      </div>
-    </div>
-    <nav class="nav-links" aria-label="Hauptnavigation">
-      <a href="#">Startseite</a>
-      <a href="#">Plan</a>
-      <a href="#">Hilfe</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="controls" aria-label="Filter">
-      <div class="control-group">
-        <label for="classFilter">Klasse / Stufe</label>
-        <select id="classFilter"></select>
-      </div>
-      <div class="control-group">
-        <label for="weekFilter">Woche</label>
-        <select id="weekFilter"></select>
-      </div>
-      <div class="control-group">
-        <label for="teacherFilter">Lehrer*in</label>
-        <select id="teacherFilter"></select>
-      </div>
-      <div class="control-actions">
-        <button id="todayButton" type="button">Heute</button>
-        <button id="themeToggle" type="button" aria-pressed="false">Thema: Hell</button>
-      </div>
-    </section>
-
-    <section class="timetable-section" aria-label="Stundenplan">
-      <div class="timetable-grid" id="timetableGrid" role="grid"></div>
-    </section>
-  </main>
-
-  <div class="modal" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
-    <div class="modal__backdrop" id="modalBackdrop"></div>
-    <div class="modal__card">
-      <button class="modal__close" id="modalClose" aria-label="Schließen">×</button>
-      <h2 id="modalTitle">Unterricht</h2>
-      <div class="modal__content" id="modalContent"></div>
-    </div>
-  </div>
-
-  <footer class="site-footer">
-    <div>
-      <p><strong>Kontakt</strong></p>
-      <p>Schulverwaltung · campus@example.edu</p>
-      <p>+49 123 456 789</p>
-    </div>
-    <div class="footer-links">
-      <a href="#">Impressum</a>
-      <a href="#">Datenschutz</a>
-    </div>
-  </footer>
-
-  <script src="assets/js/script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stundenplan</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <h1>Stundenplan</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Zeit</th>
+          <th>Montag</th>
+          <th>Dienstag</th>
+          <th>Mittwoch</th>
+          <th>Donnerstag</th>
+          <th>Freitag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>08:00–09:30</td>
+          <td>Mathematik (10A) &mdash; Raum B201</td>
+          <td></td>
+          <td></td>
+          <td>Biologie (11) &mdash; Raum Labor 1</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>09:45–11:15</td>
+          <td>Deutsch (10A) &mdash; Raum A105</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10:00–11:30</td>
+          <td></td>
+          <td>Physik (10B) &mdash; Labor 3</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>12:00–13:30</td>
+          <td></td>
+          <td></td>
+          <td>Geschichte (11) &mdash; Raum C301</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>13:00–14:30</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Englisch (10B) &mdash; Sprachlabor</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
 </html>
