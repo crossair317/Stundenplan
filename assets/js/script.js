@@ -76,11 +76,6 @@ const timetableGrid = document.querySelector("#timetableGrid");
 const todayButton = document.querySelector("#todayButton");
 const themeToggle = document.querySelector("#themeToggle");
 
-const modal = document.querySelector("#detailModal");
-const modalContent = document.querySelector("#modalContent");
-const modalClose = document.querySelector("#modalClose");
-const modalBackdrop = document.querySelector("#modalBackdrop");
-
 const allTimes = Array.from(new Set(lessons.map((lesson) => lesson.startTime))).sort(sortTime);
 
 init();
@@ -123,9 +118,6 @@ function attachEvents() {
     themeToggle.textContent = `Thema: ${isDark ? "Hell" : "Dunkel"}`;
     themeToggle.setAttribute("aria-pressed", String(!isDark));
   });
-
-  modalClose.addEventListener("click", closeModal);
-  modalBackdrop.addEventListener("click", closeModal);
 }
 
 function renderTimetable() {
@@ -190,7 +182,6 @@ function createTimeCell(time) {
 function createLessonCell(lesson) {
   const div = document.createElement("div");
   div.className = "cell";
-  div.tabIndex = 0;
   div.setAttribute("role", "gridcell");
   div.innerHTML = `
     <div class="title">${lesson.subject}</div>
@@ -198,12 +189,6 @@ function createLessonCell(lesson) {
     <div class="meta">${lesson.teacher} · Raum ${lesson.room}</div>
     <div class="meta">Klasse ${lesson.class} · Woche ${lesson.week}</div>
   `;
-  div.addEventListener("click", () => openModal(lesson));
-  div.addEventListener("keypress", (event) => {
-    if (event.key === "Enter") {
-      openModal(lesson);
-    }
-  });
   return div;
 }
 
@@ -230,21 +215,6 @@ function scrollToToday() {
   if (target) {
     target.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   }
-}
-
-function openModal(lesson) {
-  modalContent.innerHTML = `
-    <p><strong>${lesson.subject}</strong></p>
-    <p>${lesson.day}, ${lesson.startTime}–${lesson.endTime}</p>
-    <p>${lesson.teacher}</p>
-    <p>Raum: ${lesson.room}</p>
-    <p>Klasse ${lesson.class} · Woche ${lesson.week}</p>
-  `;
-  modal.hidden = false;
-}
-
-function closeModal() {
-  modal.hidden = true;
 }
 
 function applyStoredTheme() {
