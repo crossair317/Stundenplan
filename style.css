@@ -56,10 +56,22 @@ body {
 }
 
 .timetable th:first-child {
-    width: 80px;
+    width: 90px;
     background: #f0f4f8;
     font-weight: 700;
     color: var(--muted);
+}
+
+.timetable th .period {
+    display: block;
+    font-size: 1rem;
+}
+
+.timetable th .time {
+    display: block;
+    font-size: 0.85rem;
+    color: #8896aa;
+    margin-top: 0.1rem;
 }
 
 .timetable th:last-child,
