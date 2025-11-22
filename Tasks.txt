@@ -1,0 +1,9 @@
+Tasks
+
+- css Styling
+- Englisch Deutsch Switch
+- Website dynamisch machen
+- Javascript hinzufügen
+
+Extras
+ - Button für Woche A und B
