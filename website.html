@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stundenplan</title>
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
   </head>
  
   <!-- Hier ist der Body -->
@@ -15,7 +18,10 @@
     <header class="top-bar">
 
       <!-- Titel der Website -->
-      <h1>Stundenplan</h1>
+      <div class="header-left">
+        <h1>Stundenplan</h1>
+        <img class="JDSR_Logo" src="assets/JDSR_Logo.jpg" />
+      </div>
 
       <!-- Sprachumschaltung -->
       <div class="language-toggle">
@@ -44,7 +50,7 @@
           <!-- 2. Zeile: Stundenplan Inhalte -->
           <tbody>
             <tr>
-              <td>07:50-09:20</td>
+              <td class="time-column"><span class = "time-line">1-2 Stunde</span><button class = "time-buttons" type = "button">07:50-09:20</button></td>
               <td><button class="subject">Wirtschaft</button></td>
               <td><button class="subject">Physik</button></td>
               <td><button class="subject">Mathematik</button></td>
@@ -54,7 +60,7 @@
 
             <!-- 3. Zeile -->
             <tr>
-              <td>9:40-11:10</td>
+              <td class="time-column"><span class="time-line">3-4 Stunde</span><button class = "time-buttons" type = "button">09:40-11:10</button></td>
               <td><button class="subject">Mathematik</button></td>
               <td><button class="subject">Chemie</button></td>
               <td><button class="subject">Deutsch/Englisch</button></td>
@@ -64,7 +70,7 @@
 
             <!-- 4. Zeile -->
             <tr>
-              <td>11:30-13:00</td>
+              <td class="time-column"><span class="time-line">5-6 Stunde</span><button class = "time-buttons" type = "button">11:30-13:00</button></td>
               <td><button class="subject">Deutsch/Englisch</button></td>
               <td><button class="subject">Spanisch/Italienisch</button></td>
               <td><button class="subject">Spanisch/Italienisch</button></td>
@@ -74,7 +80,7 @@
 
             <!-- 5. Zeile -->
             <tr>
-              <td>13:45-:15:15</td>
+              <td class="time-column"><span class="time-line">7-8 Stunde</span><button class = "time-buttons" type = "button">13:45-15:15</button></td>
               <td><button class="subject">NExt/PH-Lab</button></td>
               <td><button class="subject">GGK</button></td>
               <td><button class="subject">Infomationstechnik</button></td>
