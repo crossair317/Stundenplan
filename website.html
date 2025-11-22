@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+
+
+  <!-- Hier ist der Head -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,10 +10,15 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
  
+  <!-- Hier ist der Body -->
   <body>
     <header class="top-bar">
+
+      <!-- Titel der Website -->
       <h1>Stundenplan</h1>
-      <div class="language-toggle" aria-label="Sprachumschaltung">
+
+      <!-- Sprachumschaltung -->
+      <div class="language-toggle">
         <button class="lang active" type="button">EN</button>
         <button class="lang" type="button">DE</button>
       </div>
@@ -18,9 +26,12 @@
 
     <main class="content">
       <section class="table-card">
+
+        <!-- Stundenplan Tabelle -->
         <table>
           <thead>
             <tr>
+              <!-- 1. Zeile: Tage der Woche, Tabellenkopf-->
               <th>Zeit</th>
               <th>Montag</th>
               <th>Dienstag</th>
@@ -29,6 +40,8 @@
               <th>Freitag</th>
             </tr>
           </thead>
+
+          <!-- 2. Zeile: Stundenplan Inhalte -->
           <tbody>
             <tr>
               <td>07:50-09:20</td>
@@ -38,6 +51,8 @@
               <td><button class="subject">Infomationstechnik</button></td>
               <td><button class="subject">Deutsch</button></td>
             </tr>
+
+            <!-- 3. Zeile -->
             <tr>
               <td>9:40-11:10</td>
               <td><button class="subject">Mathematik</button></td>
@@ -46,6 +61,8 @@
               <td><button class="subject">Infomationstechnik</button></td>
               <td><button class="subject">Ethik</button></td>
             </tr>
+
+            <!-- 4. Zeile -->
             <tr>
               <td>11:30-13:00</td>
               <td><button class="subject">Deutsch/Englisch</button></td>
@@ -54,6 +71,8 @@
               <td><button class="subject">Infomationstechnik</button></td>
               <td><button class="subject">Infomationstechnik</button></td>
             </tr>
+
+            <!-- 5. Zeile -->
             <tr>
               <td>13:45-:15:15</td>
               <td><button class="subject">NExt/PH-Lab</button></td>
@@ -67,8 +86,9 @@
       </section>
     </main>
 
+    <!-- Footer der Website -->
     <footer class="footer">
-      <a class="footer-link" href="#">Impressum</a>
+      <a class="footer-link" href="#">by Lukeudon and dpsmonster</a>
     </footer>
   </body>
 </html>
