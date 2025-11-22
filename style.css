@@ -1,9 +1,217 @@
-/* style.css */
-h1 {
-    color: #4CAF50;           /* Schriftfarbe */
-    font-size: 36px;           /* Schriftgröße */
-    font-family: Arial, sans-serif; /* Schriftart */
-    margin-top: 20px;          /* Abstand nach oben */
-    margin-bottom: 20px;       /* Abstand nach unten */
-    text-transform: uppercase; /* optional: alles großschreiben */
+:root {
+    --accent: #4CAF50;
+    --border: #d9d9d9;
+    --panel-bg: #ffffff;
+    --overlay: rgba(0, 0, 0, 0.35);
+    --text: #1f2933;
+    --muted: #52606d;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    color: var(--text);
+    background: #f7f9fb;
+    min-height: 100vh;
+}
+
+.page-header {
+    padding: 1.5rem 1rem 0.5rem;
+    text-align: center;
+}
+
+.page-header h1 {
+    margin: 0;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+}
+
+.timetable-wrapper {
+    padding: 0 1rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.timetable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.timetable th,
+.timetable td {
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.timetable th:first-child {
+    width: 90px;
+    background: #f0f4f8;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.timetable th .period {
+    display: block;
+    font-size: 1rem;
+}
+
+.timetable th .time {
+    display: block;
+    font-size: 0.85rem;
+    color: #8896aa;
+    margin-top: 0.1rem;
+}
+
+.timetable th:last-child,
+.timetable td:last-child {
+    border-right: none;
+}
+
+.timetable tr:last-child th,
+.timetable tr:last-child td {
+    border-bottom: none;
+}
+
+.lesson-btn {
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: #eef7f0;
+    color: var(--text);
+    padding: 0.6rem 0.4rem;
+    cursor: pointer;
+    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.lesson-btn:hover,
+.lesson-btn:focus-visible {
+    border-color: var(--accent);
+    box-shadow: 0 6px 16px rgba(76, 175, 80, 0.18);
+    outline: none;
+    transform: translateY(-1px);
+}
+
+.detail-panel {
+    position: fixed;
+    top: 0;
+    right: -360px;
+    width: min(360px, 90vw);
+    height: 100vh;
+    background: var(--panel-bg);
+    box-shadow: -6px 0 24px rgba(0, 0, 0, 0.12);
+    transition: right 180ms ease;
+    display: flex;
+    flex-direction: column;
+    z-index: 20;
+}
+
+.detail-panel[aria-hidden="false"] {
+    right: 0;
+}
+
+.detail-panel__content {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+}
+
+.detail-panel__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.detail-panel__header h2 {
+    margin: 0;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+}
+
+.close-btn {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+    color: var(--muted);
+    padding: 0.25rem;
+    border-radius: 6px;
+}
+
+.close-btn:hover,
+.close-btn:focus-visible {
+    background: #eef2f7;
+    color: var(--text);
+    outline: none;
+}
+
+.detail-panel__list {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.detail-panel__list div {
+    background: #f6f9fc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+}
+
+.detail-panel__list dt {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--muted);
+}
+
+.detail-panel__list dd {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--overlay);
+    backdrop-filter: blur(2px);
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .timetable th,
+    .timetable td {
+        padding: 0.35rem;
+    }
+
+    .lesson-btn {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .detail-panel {
+        width: 100%;
+        right: -100%;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.16);
+    }
+
+    .detail-panel__content {
+        padding: 1rem 1.25rem 2rem;
+    }
 }
