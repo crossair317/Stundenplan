@@ -6,45 +6,61 @@
     <title>Stundenplan</title>
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-
   <body>
-    <header class="site-header">
-      <div>
-        <p class="eyebrow">Schulübersicht</p>
-        <h1>Stundenplan</h1>
-        <p class="lede">Wähle Klasse, Woche oder Lehrkraft, um den Plan zu sehen.</p>
-      </div>
-      <button id="themeToggle" type="button" aria-pressed="false">Thema: Hell</button>
-    </header>
-
-    <main>
-      <section class="controls" aria-label="Filter">
-        <label class="control">
-          <span>Klasse / Stufe</span>
-          <select id="classFilter"></select>
-        </label>
-        <label class="control">
-          <span>Woche</span>
-          <select id="weekFilter"></select>
-        </label>
-        <label class="control">
-          <span>Lehrer*in</span>
-          <select id="teacherFilter"></select>
-        </label>
-        <div class="control actions">
-          <button id="todayButton" type="button">Heute</button>
-        </div>
-      </section>
-
-      <section class="timetable-section" aria-label="Stundenplan">
-        <div class="timetable-grid" id="timetableGrid" role="grid"></div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>Stundenplan · Einfacher Überblick</p>
-    </footer>
-
-    <script src="assets/js/script.js"></script>
+    <h1>Stundenplan</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Zeit</th>
+          <th>Montag</th>
+          <th>Dienstag</th>
+          <th>Mittwoch</th>
+          <th>Donnerstag</th>
+          <th>Freitag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>08:00–09:30</td>
+          <td>Mathematik (10A) &mdash; Raum B201</td>
+          <td></td>
+          <td></td>
+          <td>Biologie (11) &mdash; Raum Labor 1</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>09:45–11:15</td>
+          <td>Deutsch (10A) &mdash; Raum A105</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10:00–11:30</td>
+          <td></td>
+          <td>Physik (10B) &mdash; Labor 3</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>12:00–13:30</td>
+          <td></td>
+          <td></td>
+          <td>Geschichte (11) &mdash; Raum C301</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>13:00–14:30</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Englisch (10B) &mdash; Sprachlabor</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
