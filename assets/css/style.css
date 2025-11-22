@@ -1,8 +1,9 @@
 body {
   margin: 24px;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: system-ui;
   color: #222;
   background: #fff;
+  min-height: 100vh;
 }
 
 h1 {
