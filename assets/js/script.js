@@ -6,117 +6,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeButton = modal.querySelector('.info-modal__close');
 
   const subjectInfo = {
-    Mathematik: {
-      raum: 'K203',
-      lehrer: 'Dr Schäfer',
-    },
-    Wirtschaft: {
-      raum: 'K203',
-      lehrer: 'Frau Corbe',
-    },
-    Deutsch: {
-      raum: 'K203',
-      lehrer: 'Frau Fischer',
-    },
-    Englisch: {
-      raum: 'K203',
-      lehrer: 'Frau Seitel',
-    },
-    Physik: {
-      raum: 'KE07',
-      lehrer: 'Frau Heim',
-    },
-    Chemie: {
-      raum: 'KE04',
-      lehrer: 'Fraum Pfitzer',
-    },
-    GGK: {
-      raum: 'K203',
-      lehrer: 'Herr Mohr',
-    },
-    INFT1: { // mittwochnachmittag gruppe b
-      raum: 'KE12',
-      lehrer: 'Frau Jansen-Tapken',
-      week: 'even',
-      group: 'B',
-    },
-    INFT2: { // donnerstag zweite stunde ?????????
-      raum: '',
-      lehrer: 'Frau Jansen-Tapken',
-      week: 'even',
-      group: 'B',
-    },
-    INFT3: { // donnerstag erste stunde gruppe b
-      raum: 'BU13',
-      lehrer: 'Herr Maucher',
-      week: 'odd',
-      group: 'B',
-    },
-    INFT4: { // donnerstag erste stunde gruppe a
-      raum: 'BU13',
-      lehrer: 'Herr Maucher',
-      week: 'even',
-      group: 'A',
-    },
-    INFT5: { // donnerstag zweite stunde beide gruppen
-      raum: 'BU13',
-      lehrer: 'Herr Maucher',
-    },
-    INFT6: { // donnerstag dritte stunde beide gruppen
-      raum: 'K203',
-      lehrer: 'Frau Jansen-Tapken',
-      week: 'even',
-    },
-    INFT9: { // donnerstag dritte stunde gruppe a
-      raum: 'BU11',
-      lehrer: 'Frau Jansen-Tapken',
-      week: 'odd',
-      group: 'A',
-    },
-    INF7: { // freitag dritte stunde gruppe a
-      raum: 'BU13',
-      lehrer: 'Frau Brandt',
-      week: 'odd',
-      group: 'A',
-    },
-    INF8: { // freitag dritte stunde gruppe b
-      raum: 'BU13',
-      lehrer: 'Frau Brandt',
-      week: 'even',
-      group: 'B',
-    },
-    INFT10: { // freitag dritte stunde gruppe b
-      raum: 'BU11',
-      lehrer: 'Frau Jansen-Tapken',
-      week: 'odd',
-      group: 'B',
-    },
-    INFT11: { // freitag dritte stunde gruppe a
-      raum: 'BU11',
-      lehrer: 'Frau Jansen-Tapken',
-      week: 'even',
-      group: 'A',
-    },
-    Sport1: {
-      raum: 'RT01',
-      lehrer: 'Herr Fueller',
-      week: 'even',
-      group: 'B',
-    },
-    Sport2: {
-      raum: 'RT01',
-      lehrer: 'Herr Fueller',
-      week: 'odd',
-      group: 'A',
-    },
-    Ethik: {
-      raum: '109',
-      lehrer: 'Herr Salewski',
-    },
-    Astronomie: {
-      raum: 'K203',
-      lehrer: 'Herr Manz',
-    },
+    montag1: { raum: "K203", lehrer: "Frau Corbe" },             // Wirtschaft
+    montag2: { raum: "K203", lehrer: "Dr Schaefer" },            // Mathematik
+    montag3: { raum: "",    lehrer: "" },                        // Deutsch/Englisch
+    montag4: { raum: "",    lehrer: "" },                        // NExt/PH-Lab
+
+    dienstag1: { raum: "KE07", lehrer: "Frau Heim" },            // Physik
+    dienstag2: { raum: "KE04", lehrer: "Frau Pfitzer" },         // Chemie
+    dienstag3: { raum: "",    lehrer: "" },                      // Spanisch/Italienisch
+    dienstag4: { raum: "K203", lehrer: "Herr Mohr" },            // GGK
+
+    mittwoch1: { raum: "K203", lehrer: "Dr Schaefer" },          // Mathematik
+    mittwoch2: { raum: "",    lehrer: "" },                      // Deutsch/Englisch
+    mittwoch3: { raum: "",    lehrer: "" },                      // Spanisch/Italienisch
+    mittwoch4: { raum: "K203", lehrer: "Frau Jansen-Tapken" },   // Infomationstechnik
+
+    donnerstag1: { raum: "BU13", lehrer: "Herr Maucher" },       // Infomationstechnik
+    donnerstag2: { raum: "BU13", lehrer: "Herr Maucher" },       // Infomationstechnik
+    donnerstag3: { raum: "K203", lehrer: "Frau Jansen-Tapken" }, // Infomationstechnik
+    donnerstag4: { raum: "RT01", lehrer: "Herr Fueller" },       // Sport
+
+    freitag1: { raum: "K203", lehrer: "Frau Fischer" },          // Deutsch
+    freitag2: { raum: "109",  lehrer: "Herr Salewski" },         // Ethik
+    freitag3: { raum: "BU13", lehrer: "Frau Brandt" },           // Infomationstechnik
+    freitag4: { raum: "K203", lehrer: "Herr Manz" },             // Astronomie/BK
   };
 
   // Oeffnet das Modal und setzt den Titel
@@ -139,9 +52,29 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    // Wenn zweiwöchig (even/odd) hinterlegt, beide Varianten zeigen
+    if (info.even || info.odd) {
+      const even = info.even || {};
+      const odd = info.odd || {};
+      modalBody.innerHTML = `
+        <div class="week-block">
+          <h3>Gerade Woche</h3>
+          <p><strong>Raum:</strong> ${even.raum || "--"}</p>
+          <p><strong>Lehrer:</strong> ${even.lehrer || "--"}</p>
+        </div>
+        <hr>
+        <div class="week-block">
+          <h3>Ungerade Woche</h3>
+          <p><strong>Raum:</strong> ${odd.raum || "--"}</p>
+          <p><strong>Lehrer:</strong> ${odd.lehrer || "--"}</p>
+        </div>
+      `;
+      return;
+    }
+
+    // Standard: eine Variante
     const raum = info.raum || "--";
     const lehrer = info.lehrer || "--";
-
     modalBody.innerHTML = `
       <p><strong>Raum:</strong> ${raum}</p>
       <p><strong>Lehrer:</strong> ${lehrer}</p>
@@ -151,9 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Klick auf ein Fach oeffnet das Modal mit dem Fachnamen als Titel und zeigt Infos aus subjectInfo
   document.querySelectorAll('.subject').forEach((button) => {
     button.addEventListener('click', () => {
-      // Preferiere den Zeitslot der Zeile als Lookup-Key, dann expliziten data-Key, dann sichtbaren Text
+      // Preferiere den data-Key
       const slot = button.closest('tr')?.querySelector('.time-buttons')?.textContent.trim();
-      const key = slot || button.dataset.subjectKey || button.textContent.trim() || 'Fach';
+      const key = button.dataset.subjectKey
       const label = button.textContent.trim() || key;
       renderInfo(key);
       openModal(label);
@@ -176,20 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }
   });
-
-  // Dark/Light Theme Toggle
-  const themeToggle = document.getElementById('themeToggle');
-  const updateThemeLabel = () => {
-    const isDark = document.body.classList.contains('theme-dark');
-    themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-  };
-
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('theme-dark');
-    updateThemeLabel();
-  });
-
-  updateThemeLabel();
 
 
   // Sprachumschaltung (EN/DE)
