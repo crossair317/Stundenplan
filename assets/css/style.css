@@ -78,7 +78,7 @@ h1 {
 .lang:hover {
   color: var(--text);
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(15, 98, 254, 0.12);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
 }
 
 .content {
@@ -111,17 +111,26 @@ table {
 }
 
 .time-line {
+  font-family: "inter", sans-serif;
   display: inline-block;
   min-width: 110px;
   text-align: center;
 }
 
 .time-buttons {
-  font-family: 'science gothic', sans-serif;
-  padding: 10px 18px 10px 18px;
+  font-family: 'Science Gothic', sans-serif;
+  padding: 10px 18px;
   border-style: none;
   border-radius: 9999px;
   margin: 10px 0 20px 0;
+  background: #fafafa;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.time-buttons:hover {
+  background: #d8d8d8;
+  border-style: none;
+  color: #000000;
 }
 
 th,
@@ -138,20 +147,21 @@ th {
   background: #f6f7fb;
   font-weight: 700;
   font-family: 'science gothic', sans-serif;
+  font-size: 20px;
 }
 
-
 .subject {
-  display: inline-block;
+  display: flex;
   width: 100%;
   padding: 10px 12px 50px;
   border: 1px solid var(--border);
   border-radius: 3px;
   background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
-  font-size: 14px;
+  font-size: 20px;
   text-align: left;
   cursor: pointer;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;;
+  font-family: "Inter", sans-serif;
 }
 
 .subject:hover {
