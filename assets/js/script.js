@@ -81,17 +81,30 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   };
 
-  // Klick auf ein Fach oeffnet das Modal mit dem Fachnamen als Titel und zeigt Infos aus subjectInfo
-  document.querySelectorAll('.subject').forEach((button) => {
-    button.addEventListener('click', () => {
-      // Preferiere den data-Key
-      const slot = button.closest('tr')?.querySelector('.time-buttons')?.textContent.trim();
-      const key = button.dataset.subjectKey
-      const label = button.textContent.trim() || key;
-      renderInfo(key);
-      openModal(label);
-    });
+  // Auf jedes Fach-Button klicken
+document.querySelectorAll('.subject').forEach((button) => {
+
+  button.addEventListener('click', () => {
+    // Holt die Uhrzeit aus der gleichen Tabellenzeile wie das Fach.
+    // 1. button.closest('tr') → gehe vom Button nach oben bis zur zugehörigen <tr>
+    // 2. .querySelector('.time-buttons') → suche in dieser Zeile die Zeit-Spalte
+    // 3. ?. verhindert Fehler, falls etwas davon nicht existiert
+    const slot = button.closest('tr')?.querySelector('.time-buttons')?.textContent.trim();
+
+    // Der data-subject-key bestimmt die Infos im subjectInfo-Objekt
+    const key = button.dataset.subjectKey;
+
+    // Der sichtbare Text des Buttons wird als Modaltitel genutzt
+    const label = button.textContent.trim() || key;
+
+    // Füllt das Modal mit den Rauminfos/Lehrerinfos zum Fach
+    renderInfo(key);
+
+    // Öffnet das Modal-Fenster mit dem passenden Titel
+    openModal(label);
   });
+});
+
 
   // X-Button schliesst das Modal
   closeButton.addEventListener('click', closeModal);
